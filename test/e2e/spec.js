@@ -17,20 +17,18 @@ var attempt = function (done, callback) {
     };
 };
 
-var verifyBuild = function (type, name, done) {
-    gulp.src("./test/e2e/fixtures/" + name + "/index." + type)
+var verifyBuild = function (type, name) {
+    var expected = gulp.src(path.join("./test/e2e/expected", name, "index." + type));
+    var actual = gulp.src("./test/e2e/fixtures/" + name + "/index." + type)
         .pipe(resolver[type]({
             assetsDir: "./test/e2e/fixtures/" + name + "/"
-        }))
-        .once("data", attempt(done, function (file) {
-            var expected = fs.readFileSync(path.join(__dirname, "expected", name, "index." + type), "utf8");
-            file.contents.toString("utf8").should.equal(expected);
         }));
+    return actual.should.produce.sameFilesAs(expected);
 };
 
 var buildVerifier = function (type, name) {
-    return function (done) {
-        return verifyBuild(type, type + "-" + name, done);
+    return function () {
+        return verifyBuild(type, type + "-" + name);
     };
 };
 

@@ -29,7 +29,8 @@
     "gulp": "^3.6.0",
     "chai": "^1.9.1",
     "gulp-mocha": "^0.4.1",
-    "gulp-istanbul": "^0.2.0"
+    "gulp-istanbul": "^0.2.0",
+    "chai-gulp-helpers": "0.0.2"
   },
   "dependencies": {
     "glob": "^3.2.9",
