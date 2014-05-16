@@ -1,6 +1,7 @@
 # gulp-resolver
 
 [![Build Status](https://travis-ci.org/jussi-kalliokoski/gulp-resolver.png?branch=master)](https://travis-ci.org/jussi-kalliokoski/gulp-resolver)
+[![Coverage Status](https://img.shields.io/coveralls/jussi-kalliokoski/gulp-resolver.svg)](https://coveralls.io/r/jussi-kalliokoski/gulp-resolver)
 
 This [gulp](http://gulpjs.com/) plugin provides one of [grunt-usemin](https://github.com/yeoman/grunt-usemin)'s many features for gulp: replacing links in HTML and CSS files to their minified / revved versions.
 
