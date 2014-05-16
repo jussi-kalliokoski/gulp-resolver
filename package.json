@@ -1,0 +1,41 @@
+{
+  "name": "gulp-resolver",
+  "version": "0.0.0",
+  "description": "Replace references to source files with references to generated files.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jussi-kalliokoski/gulp-resolver"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": {
+    "name": "Jussi Kalliokoski",
+    "email": "jussi.kalliokoski@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jussi-kalliokoski/gulp-resolver/issues"
+  },
+  "homepage": "https://github.com/jussi-kalliokoski/gulp-resolver",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "chai": "^1.9.1",
+    "gulp-mocha": "^0.4.1",
+    "gulp-istanbul": "^0.2.0",
+    "event-stream": "^3.1.5"
+  },
+  "dependencies": {
+    "glob": "^3.2.9",
+    "through2": "^0.4.1",
+    "lodash": "^2.4.1",
+    "q": "^1.0.1"
+  }
+}
