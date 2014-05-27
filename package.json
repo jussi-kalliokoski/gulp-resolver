@@ -6,6 +6,10 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | COVERALLS_SERVICE_NAME=\"travis-ci\" ./node_modules/.bin/coveralls",
     "test": "./node_modules/.bin/gulp test"
