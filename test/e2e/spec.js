@@ -55,5 +55,6 @@ describe("gulp-resolver", function () {
         it("should understand double-quoted url functions", buildVerifier("css", "double-quoted-url-functions"));
         it("should understand single-quoted url functions", buildVerifier("css", "single-quoted-url-functions"));
         it("should understand non-quoted url functions", buildVerifier("css", "non-quoted-url-functions"));
+        it("should ignore fragments in URLs", buildVerifier("css", "fragments-in-urls"));
     });
 });
