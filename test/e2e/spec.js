@@ -23,6 +23,7 @@ var verifyBuild = function (type, name) {
         .pipe(resolver[type]({
             assetsDir: "./test/e2e/fixtures/" + name + "/"
         }));
+    actual.on("data", function (d) { console.log(d.contents.toString()); });
     return actual.should.produce.sameFilesAs(expected);
 };
 
@@ -57,5 +58,6 @@ describe("gulp-resolver", function () {
         it("should understand non-quoted url functions", buildVerifier("css", "non-quoted-url-functions"));
         it("should ignore fragments in URLs", buildVerifier("css", "fragments-in-urls"));
         it("should empty search query string in URLs", buildVerifier("css", "empty-search-in-urls"));
+        it("should preserve relative paths", buildVerifier("css", "relative-path"));
     });
 });
