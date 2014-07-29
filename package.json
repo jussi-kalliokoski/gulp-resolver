@@ -1,6 +1,6 @@
 {
   "name": "gulp-resolver",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Replace references to source files with references to generated files.",
   "main": "index.js",
   "directories": {
