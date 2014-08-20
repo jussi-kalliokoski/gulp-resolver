@@ -23,7 +23,6 @@ var verifyBuild = function (type, name) {
         .pipe(resolver[type]({
             assetsDir: "./test/e2e/fixtures/" + name + "/"
         }));
-    actual.on("data", function (d) { console.log(d.contents.toString()); });
     return actual.should.produce.sameFilesAs(expected);
 };
 
