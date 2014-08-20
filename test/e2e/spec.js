@@ -23,7 +23,6 @@ var verifyBuild = function (type, name) {
         .pipe(resolver[type]({
             assetsDir: "./test/e2e/fixtures/" + name + "/"
         }));
-    actual.on("data", function (d) { console.log(d.contents.toString()); });
     return actual.should.produce.sameFilesAs(expected);
 };
 
@@ -45,6 +44,7 @@ describe("gulp-resolver", function () {
         it("should not add leading slashes to references that don't have it", buildVerifier("html", "no-leading-slash"));
         it("should not modify tags that don't have the specified attributes", buildVerifier("html", "tags-with-no-attributes"));
         it("should not modify unresolved links", buildVerifier("html", "unresolved-references"));
+        it("should ignore directories", buildVerifier("html", "ignore-directories"));
     });
 
     describe(".css()", function () {
