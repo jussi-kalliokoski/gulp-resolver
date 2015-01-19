@@ -57,6 +57,7 @@ describe("gulp-resolver", function () {
         it("should understand single-quoted url functions", buildVerifier("css", "single-quoted-url-functions"));
         it("should understand non-quoted url functions", buildVerifier("css", "non-quoted-url-functions"));
         it("should ignore fragments in URLs", buildVerifier("css", "fragments-in-urls"));
+        it("should handle dots in query parameters", buildVerifier("css", "query-parameters-with-dots-in-urls"));
         it("should empty search query string in URLs", buildVerifier("css", "empty-search-in-urls"));
         it("should preserve relative paths", buildVerifier("css", "relative-path"));
     });
