@@ -26,6 +26,21 @@ This will give you two functions, `html()` and `css()` to use respectively for w
 ## Options
 
 * `assetsDir` (defaults to `.`) a string that determines the path where to seek the replaced references from.
+* `createLink` (optional) if specified, overrides the default link construction functionality. The function should return a string and input will be an object such as the following:
+
+```javascript
+{
+  original: "the full original link",
+  originalDirname: "the dirname of the original link",
+  originalBasename: "the basename of the original link (without extension)",
+  originalExtname: "the file extension of the original link",
+  query: "the query part of the link",
+  fragment: "the fragment part of the link",
+  dirname: "the dirname of the best match (if applicable, otherwise undefined)",
+  basename: "the basename of the best match (if applicable, otherwise undefined)",
+  extname: "the extname of the best match (if applicable, otherwise undefined)",
+}
+```
 
 ## Examples
 

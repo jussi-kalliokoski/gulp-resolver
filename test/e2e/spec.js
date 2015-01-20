@@ -17,18 +17,21 @@ var attempt = function (done, callback) {
     };
 };
 
-var verifyBuild = function (type, name) {
+var verifyBuild = function (type, name, createLink) {
+    var options = {};
+
+    options.assetsDir = "./test/e2e/fixtures/" + name + "/";
+    if ( createLink ) { options.createLink = createLink; }
+
     var expected = gulp.src(path.join("./test/e2e/expected", name, "index." + type));
     var actual = gulp.src("./test/e2e/fixtures/" + name + "/index." + type)
-        .pipe(resolver[type]({
-            assetsDir: "./test/e2e/fixtures/" + name + "/"
-        }));
+        .pipe(resolver[type](options));
     return actual.should.produce.sameFilesAs(expected);
 };
 
-var buildVerifier = function (type, name) {
+var buildVerifier = function (type, name, createLink) {
     return function () {
-        return verifyBuild(type, type + "-" + name);
+        return verifyBuild(type, type + "-" + name, createLink);
     };
 };
 
@@ -60,5 +63,9 @@ describe("gulp-resolver", function () {
         it("should handle dots in query parameters", buildVerifier("css", "query-parameters-with-dots-in-urls"));
         it("should empty search query string in URLs", buildVerifier("css", "empty-search-in-urls"));
         it("should preserve relative paths", buildVerifier("css", "relative-path"));
+        it("should allow custom link post-processing", buildVerifier("css", "custom-link-processing", function (link) {
+            return path.join("/foo/", link.dirname, link.basename.replace(/^c/, "r") + link.extname.replace(/jp/, "pn") +
+                link.query.replace(/\d/g, "1") + link.fragment.replace(/o/g, "a"));
+        }));
     });
 });
